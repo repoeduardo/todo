@@ -1,0 +1,35 @@
+[project]
+name = "todo"
+version = "0.1.0"
+description = "A complete todo app"
+authors = [
+    {name = "Eduardo Araujo Da Silva",email = "eduardoaraujodasilva@protonmail.com"}
+]
+readme = "README.md"
+requires-python = "3.12.*"
+dependencies = [
+    "fastapi (>=0.115.11,<0.116.0)",
+    "uvicorn (>=0.34.0,<0.35.0)",
+]
+
+[tool.poetry]
+packages = [{include = "todo", from = "src"}]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+pytest-cov = "^6.0.0"
+taskipy = "^1.14.1"
+httpx = "^0.28.1"
+
+[tool.pytest.init_options]
+pythonpath = "."
+addopts = '-p no:warnings'
+
+[tool.taskipy.tasks]
+run = 'uvicorn todo.main:app --reload'
+test = 'pytest --cov=[todo] -vv'
+test_html = 'coverage html'
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
