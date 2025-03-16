@@ -3,10 +3,10 @@ from fastapi.testclient import TestClient
 from http import HTTPStatus
 
 
-def test_index_from_main():
+def test_index():
     client = TestClient(app) # arrange
 
     response = client.get('/') # act
 
     assert response.status_code == HTTPStatus.OK # assert
-    assert response.json() == {'current page' : 'index'} # assert
+    assert response.json() == {'message' : 'hello world'} # assert
