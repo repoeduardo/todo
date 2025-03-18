@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from http import HTTPStatus
-from todo.schemas import Message, UserSchema, UserPublic, UserDB
+from todo.schemas import Message, UserSchema, UserPublic, UserDB, UserList
 
 app = FastAPI()
 
@@ -21,3 +21,7 @@ def create_user(user: UserSchema):
     database.append(user_with_id)
     print(database)
     return user_with_id
+
+@app.get('/users', response_model=UserList)
+def read_user():
+    return {'users': database}

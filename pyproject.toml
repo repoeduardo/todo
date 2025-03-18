@@ -14,7 +14,7 @@ dependencies = [
 ]
 
 [tool.poetry]
-packages = [{include = "todo", from = "src"}]
+packages = [{include = "todo"}]
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.5"
