@@ -1,3 +1,3 @@
 # TODO
 
-A complete To-Do app
+Complete API for To-Do Applications. Made with FastAPI
